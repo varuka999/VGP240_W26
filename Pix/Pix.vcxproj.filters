@@ -75,9 +75,6 @@
     <ClCompile Include="CmdDrawPixel.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CmdSetColor.cpp">
-      <Filter>Commands</Filter>
-    </ClCompile>
     <ClCompile Include="CmdSetResolution.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
@@ -102,6 +99,9 @@
     <ClCompile Include="Viewport.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="CmdSetColor.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextEditor.h">
@@ -111,9 +111,6 @@
       <Filter>Editor</Filter>
     </ClInclude>
     <ClInclude Include="CmdDrawPixel.h">
-      <Filter>Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="CmdSetColor.h">
       <Filter>Commands</Filter>
     </ClInclude>
     <ClInclude Include="CmdSetResolution.h">
@@ -142,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="Viewport.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdSetColor.h">
+      <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
