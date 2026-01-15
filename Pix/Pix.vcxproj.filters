@@ -63,6 +63,9 @@
     <None Include="Scripts\3d_texturing_perspective.pix">
       <Filter>Scripts</Filter>
     </None>
+    <None Include="Scripts\mew.pix">
+      <Filter>Scripts</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp" />

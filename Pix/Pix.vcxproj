@@ -163,6 +163,7 @@
     <None Include="Scripts\guile.pix" />
     <None Include="Scripts\lines.pix" />
     <None Include="Scripts\lines2.pix" />
+    <None Include="Scripts\mew.pix" />
     <None Include="Scripts\quad.pix" />
     <None Include="Scripts\quad2.pix" />
     <None Include="Scripts\test.pix" />
