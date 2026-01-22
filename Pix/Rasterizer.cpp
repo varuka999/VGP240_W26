@@ -41,7 +41,7 @@ void Rasterizer::SetColor(X::Color color)
 
 void Rasterizer::SetFillMode(FillMode fillmode)
 {
-
+    mFillMode = fillmode;
 }
 
 void Rasterizer::DrawPoint(int x, int y)

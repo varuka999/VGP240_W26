@@ -176,6 +176,7 @@
     <ClCompile Include="CmdDrawPixel.cpp" />
     <ClCompile Include="CmdEndDraw.cpp" />
     <ClCompile Include="CmdSetColor.cpp" />
+    <ClCompile Include="CmdSetFillMode.cpp" />
     <ClCompile Include="CmdSetResolution.cpp" />
     <ClCompile Include="CmdVarFloat.cpp" />
     <ClCompile Include="CmdVertex.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="CmdDrawPixel.h" />
     <ClInclude Include="CmdEndDraw.h" />
     <ClInclude Include="CmdSetColor.h" />
+    <ClInclude Include="CmdSetFillMode.h" />
     <ClInclude Include="CmdSetResolution.h" />
     <ClInclude Include="CmdVarFloat.h" />
     <ClInclude Include="CmdVertex.h" />

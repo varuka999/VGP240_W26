@@ -3,7 +3,7 @@
 #include <XEngine.h>
 #include "Vertex.h"
 
-enum class FillMode
+static enum class FillMode
 {
 	Wireframe,
 	Solid,
@@ -27,5 +27,5 @@ private:
 	void DrawFilledTriangle(const Vertex& a, const Vertex& b, const Vertex& c);
 
 	X::Color mColor = X::Colors::White;
-	FillMode mFillMode = FillMode::Solid;
+	FillMode mFillMode = FillMode::Wireframe;
 };
