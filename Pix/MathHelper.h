@@ -3,10 +3,15 @@
 #include "Vector2.h"
 #include "Vector3.h"
 #include "Matrix4.h"
+#include <cmath>
 
 namespace MathHelper
 {
+    constexpr float DegToRad = 3.1416 / 180.0f;
+
     bool CheckEqual(float a, float b);
+
+    void FlattenVectorScreenCoord(Vector3& v);
 
     float MagnitudeSquared(const Vector2& v);
     float MagnitudeSquared(const Vector3& v);
