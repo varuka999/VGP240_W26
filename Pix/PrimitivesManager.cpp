@@ -59,13 +59,13 @@ bool PrimitivesManager::EndDraw()
 
     // to start, the triangle certices are in local space
 
-    // this matrix transform the local vertices to world space
+    // this matrix transforms the local vertices to world space
     Matrix4 matWorld = MatrixStack::Get()->GetTransform();
     // this matrix transforms the world vertices to local space of the camera
     Matrix4 matView = Camera::Get()->GetViewMatrix();
-    // this matrix transform the camera local space vertices to NDC space
+    // this matrix transforms the camera local space vertices to NDC space
     Matrix4 matProj = Camera::Get()->GetProjectionMatrix();
-    // this matrix transform the NDC space vertices to screen space
+    // this matrix transforms the NDC space vertices to screen space
     Matrix4 matScreen = GetScreenTransform();
     Matrix4 matFinal = matWorld * matView * matProj * matScreen;
 
@@ -121,5 +121,5 @@ bool PrimitivesManager::EndDraw()
         return false;
     }
 
-    return false;
+    return true;
 }
