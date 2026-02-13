@@ -1,4 +1,5 @@
 #include "Rasterizer.h"
+#include "DepthBuffer.h"
 
 void DrawLineHorizontal(const Vertex& left, const Vertex& right)
 {
@@ -27,18 +28,15 @@ void DrawLineVertical(const Vertex& bottom, const Vertex& top)
         Rasterizer::Get()->DrawPoint(v);
     }
 }
-
 Rasterizer* Rasterizer::Get()
 {
     static Rasterizer sInstance;
     return &sInstance;
 }
-
 void Rasterizer::SetColor(X::Color color)
 {
     mColor = color;
 }
-
 void Rasterizer::SetFillMode(FillMode fillmode)
 {
     mFillMode = fillmode;
@@ -53,14 +51,16 @@ void Rasterizer::DrawPoint(const Vertex& vertex)
 {
     int x = static_cast<int>(vertex.pos.x);
     int y = static_cast<int>(vertex.pos.y);
-    X::DrawPixel(x, y, vertex.color);
+    if (DepthBuffer::Get()->CheckDepthBuffer(x, y, vertex.pos.z))
+    {
+        X::DrawPixel(x, y, vertex.color);
+    }
 }
 
 void Rasterizer::DrawLine(const Vertex& a, const Vertex& b)
 {
     float dx = b.pos.x - a.pos.x;
     float dy = b.pos.y - a.pos.y;
-
     // If true, line is going up/down or more vertically than horizontally
     if (MathHelper::CheckEqual(dx, 0.0f) || abs(dy / dx) >= 1.0f)
     {
