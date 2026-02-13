@@ -12,6 +12,10 @@ struct Matrix4
             float a21, float a22, float a23, float a24,
             float a31, float a32, float a33, float a34,
             float a41, float a42, float a43, float a44)
+        : _11(a11), _12(a12), _13(a13), _14(a14),
+          _21(a21), _22(a22), _23(a23), _24(a24),
+          _31(a31), _32(a32), _33(a33), _34(a34),
+          _41(a41), _42(a42), _43(a43), _44(a44)
     {
 
     }

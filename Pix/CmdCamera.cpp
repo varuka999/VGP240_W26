@@ -49,9 +49,6 @@ bool CmdSetCameraNear::Execute(const std::vector<std::string>& params)
     {
         Camera::Get()->SetNearPlane(nearPlane);
     }
-    else
-    {
-    }
 
     return true;
 }
@@ -86,7 +83,6 @@ bool CmdSetCameraFov::Execute(const std::vector<std::string>& params)
 
     if (Camera::Get() != nullptr)
     {
-        // Expecting FOV in degrees in scripts; clamp happens inside Camera::SetFOV
         Camera::Get()->SetFOV(fov * X::Math::kDegToRad);
     }
 
