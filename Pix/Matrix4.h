@@ -1,6 +1,8 @@
 #pragma once
 #include <cmath>
 
+
+
 struct Matrix4
 {
     float _11, _12, _13, _14,
@@ -13,11 +15,10 @@ struct Matrix4
             float a31, float a32, float a33, float a34,
             float a41, float a42, float a43, float a44)
         : _11(a11), _12(a12), _13(a13), _14(a14),
-         _21(a21), _22(a22), _23(a23), _24(a24),
-         _31(a31), _32(a32), _33(a33), _34(a34),
-         _41(a41), _42(a42), _43(a43), _44(a44)
+          _21(a21), _22(a22), _23(a23), _24(a24),
+          _31(a31), _32(a32), _33(a33), _34(a34),
+          _41(a41), _42(a42), _43(a43), _44(a44)
     {
-
     }
 
     Matrix4()
@@ -26,13 +27,11 @@ struct Matrix4
                   0.0f, 0.0f, 1.0f, 0.0f,
                   0.0f, 0.0f, 0.0f, 1.0f)
     {
-
     }
 
     Matrix4 operator+(const Matrix4& m) const
     {
-        return
-        {
+        return {
             _11 + m._11, _12 + m._12, _13 + m._13, _14 + m._14,
             _21 + m._21, _22 + m._22, _23 + m._23, _24 + m._24,
             _31 + m._31, _32 + m._32, _33 + m._33, _34 + m._34,
@@ -42,8 +41,7 @@ struct Matrix4
 
     Matrix4 operator*(float s) const
     {
-        return
-        {
+        return {
             _11 * s, _12 * s, _13 * s, _14 * s,
             _21 * s, _22 * s, _23 * s, _24 * s,
             _31 * s, _32 * s, _33 * s, _34 * s,
@@ -53,8 +51,7 @@ struct Matrix4
 
     Matrix4 operator*(const Matrix4& m) const
     {
-        return 
-        {
+        return {
             (_11 * m._11) + (_12 * m._21) + (_13 * m._31) + (_14 * m._41),
             (_11 * m._12) + (_12 * m._22) + (_13 * m._32) + (_14 * m._42),
             (_11 * m._13) + (_12 * m._23) + (_13 * m._33) + (_14 * m._43),
@@ -79,8 +76,7 @@ struct Matrix4
 
     static Matrix4 Identity()
     {
-        return
-        {
+        return {
             1.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,
@@ -92,8 +88,7 @@ struct Matrix4
     {
         const float s = sinf(rad);
         const float c = cosf(rad);
-        return
-        {
+        return {
             1.0f, 0.0f, 0.0f, 0.0f,
             0.0f,    c,    s, 0.0f,
             0.0f,   -s,    c, 0.0f,
@@ -105,8 +100,7 @@ struct Matrix4
     {
         const float s = sinf(rad);
         const float c = cosf(rad);
-        return
-        {
+        return {
                c, 0.0f,   -s, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f,
                s, 0.0f,    c, 0.0f,
@@ -118,8 +112,7 @@ struct Matrix4
     {
         const float s = sinf(rad);
         const float c = cosf(rad);
-        return
-        {
+        return {
                c,    s, 0.0f, 0.0f,
               -s,    c, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,
@@ -129,8 +122,7 @@ struct Matrix4
 
     static Matrix4 Scale(float s)
     {
-        return
-        {
+        return {
                s, 0.0f, 0.0f, 0.0f,
             0.0f,    s, 0.0f, 0.0f,
             0.0f, 0.0f,    s, 0.0f,
@@ -140,8 +132,7 @@ struct Matrix4
 
     static Matrix4 Scale(const Vector3 v)
     {
-        return
-        {
+        return {
              v.x, 0.0f, 0.0f, 0.0f,
             0.0f,  v.y, 0.0f, 0.0f,
             0.0f, 0.0f,  v.z, 0.0f,
@@ -151,8 +142,7 @@ struct Matrix4
 
     static Matrix4 Translation(float x, float y, float z)
     {
-        return
-        {
+        return {
             1.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,
@@ -162,8 +152,7 @@ struct Matrix4
 
     static Matrix4 Translation(const Vector3& v)
     {
-        return
-        {
+        return {
             1.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,

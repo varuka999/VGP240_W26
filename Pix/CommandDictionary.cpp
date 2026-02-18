@@ -3,6 +3,8 @@
 #include "CmdDrawPixel.h"
 #include "CmdSetResolution.h"
 #include "CmdVarFloat.h"
+#include "CmdVarInt.h"
+#include "CmdVarBool.h"
 #include "CmdSetColor.h"
 #include "CmdBeginDraw.h"
 #include "CmdEndDraw.h"
@@ -30,6 +32,8 @@ CommandDictionary::CommandDictionary()
 
     // Variable commands
     RegisterCommand<CmdVarFloat>();
+    RegisterCommand<CmdVarInt>();
+    RegisterCommand<CmdVarBool>();
 
     // Rasterization commands
     RegisterCommand<CmdDrawPixel>();

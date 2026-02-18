@@ -153,6 +153,12 @@
     <ClCompile Include="CmdEnableDepthBuffer.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="CmdVarInt.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdVarBool.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextEditor.h">
@@ -252,6 +258,12 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="CmdEnableDepthBuffer.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdVarInt.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdVarBool.h">
       <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>

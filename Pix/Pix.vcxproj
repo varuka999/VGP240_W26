@@ -186,7 +186,9 @@
     <ClCompile Include="CmdSetFillMode.cpp" />
     <ClCompile Include="CmdSetResolution.cpp" />
     <ClCompile Include="CmdSetViewport.cpp" />
+    <ClCompile Include="CmdVarBool.cpp" />
     <ClCompile Include="CmdVarFloat.cpp" />
+    <ClCompile Include="CmdVarInt.cpp" />
     <ClCompile Include="CmdVertex.cpp" />
     <ClCompile Include="CommandDictionary.cpp" />
     <ClCompile Include="DepthBuffer.cpp" />
@@ -222,7 +224,9 @@
     <ClInclude Include="CmdSetFillMode.h" />
     <ClInclude Include="CmdSetResolution.h" />
     <ClInclude Include="CmdSetViewport.h" />
+    <ClInclude Include="CmdVarBool.h" />
     <ClInclude Include="CmdVarFloat.h" />
+    <ClInclude Include="CmdVarInt.h" />
     <ClInclude Include="CmdVertex.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandDictionary.h" />
