@@ -10,11 +10,11 @@ bool CmdSetCameraPosition::Execute(const std::vector<std::string>&params)
     }
 
     VariableCache* vc = VariableCache::Get();
-    float x = vc->GetFloat(params[0]);
-    float y = vc->GetFloat(params[1]);
-    float z = vc->GetFloat(params[2]);
+    const float x = vc->GetFloat(params[0]);
+    const float y = vc->GetFloat(params[1]);
+    const float z = vc->GetFloat(params[2]);
 
-    CmdSetCameraPosition({ x, y, z });
+    Camera::Get()->SetPosition({ x, y, z });
     return true;
 }
 
@@ -26,11 +26,11 @@ bool CmdSetCameraDirection::Execute(const std::vector<std::string>& params)
     }
 
     VariableCache* vc = VariableCache::Get();
-    float x = vc->GetFloat(params[0]);
-    float y = vc->GetFloat(params[1]);
-    float z = vc->GetFloat(params[2]);
+    const float x = vc->GetFloat(params[0]);
+    const float y = vc->GetFloat(params[1]);
+    const float z = vc->GetFloat(params[2]);
 
-    SetCameraDirection({ x, y, z });
+    Camera::Get()->SetDirection({ x, y, z });
     return true;
 }
 
@@ -41,52 +41,34 @@ bool CmdSetCameraNear::Execute(const std::vector<std::string>& params)
         return false;
     }
 
-    VariableCache* vc = VariableCache::Get();
-    float nearPlane = vc->GetFloat(params[0]);
-
-    if (Camera::Get() != nullptr)
-    {
-        Camera::Get()->SetNearPlane(nearPlane);
-    }
-    else
-    {
-    }
-
+    const float nearPlane = VariableCache::Get()->GetFloat(params[0]);
+    Camera::Get()->SetNearPlane(nearPlane);
     return true;
 }
 
 bool CmdSetCameraFar::Execute(const std::vector<std::string>& params)
 {
+    // Need far plane value
     if (params.size() < 1)
     {
         return false;
     }
 
-    VariableCache* vc = VariableCache::Get();
-    float farPlane = vc->GetFloat(params[0]);
-
-    if (Camera::Get() != nullptr)
-    {
-        Camera::Get()->SetFarPlane(farPlane);
-    }
-
+    const float farPlane = VariableCache::Get()->GetFloat(params[0]);
+    Camera::Get()->SetFarPlane(farPlane);
     return true;
 }
 
 bool CmdSetCameraFov::Execute(const std::vector<std::string>& params)
 {
+    // Need fov value (interpreted as degrees, converted to radians)
     if (params.size() < 1)
     {
         return false;
     }
 
-    VariableCache* vc = VariableCache::Get();
-    float fov = vc->GetFloat(params[0]);
-
-    if (Camera::Get() != nullptr)
-    {
-        Camera::Get()->SetFOV(fov * X::Math::kDegToRad);
-    }
-
+    const float fovDegrees = VariableCache::Get()->GetFloat(params[0]);
+    const float fovRadians = fovDegrees * MathHelper::DegToRad;
+    Camera::Get()->SetFOV(fovRadians);
     return true;
 }

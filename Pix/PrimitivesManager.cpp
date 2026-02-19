@@ -63,7 +63,7 @@ PrimitivesManager::PrimitivesManager()
 PrimitivesManager* PrimitivesManager::Get()
 {
     static PrimitivesManager sInstance;
-    return&sInstance;
+    return &sInstance;
 }
 
 void PrimitivesManager::OnNewFrame()

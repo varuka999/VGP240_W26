@@ -25,6 +25,7 @@ PushRotationX(0)
 PushScaling(1, 1, 1)
 
 BeginDraw(triangle, true)
+SetFillMode(solid)
 
 // Front
 Vertex(-1, -1, 1, 0, 1, 0)
@@ -43,6 +44,7 @@ Vertex(1, 1, 1, 1, 1, 0)
 Vertex(1, -1, 1, 1, 1, 0)
 
 EndDraw()
+
 
 
 

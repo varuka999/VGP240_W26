@@ -39,5 +39,5 @@ namespace MathHelper
     // used to get the inverse matrix
     Matrix4 Adjoint(const Matrix4& m);
     // used to get the inverse matrix
-    float Determinent(const Matrix4& m);
+    float Determinant(const Matrix4& m);
 }

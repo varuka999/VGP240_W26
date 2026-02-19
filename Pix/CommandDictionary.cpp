@@ -13,8 +13,11 @@
 #include "CmdSetViewport.h"
 #include "CmdSetClipping.h"
 #include "CmdMatrixStack.h"
+#include "CmdCamera.h"
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepthBuffer.h"
+#include "CmdVarInt.h"
+#include "CmdVarBool.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -47,6 +50,11 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetFillMode>();
     RegisterCommand<CmdSetClipping>();
     RegisterCommand<CmdSetCullMode>();
+    RegisterCommand<CmdSetCameraPosition>();
+    RegisterCommand<CmdSetCameraDirection>();
+    RegisterCommand<CmdSetCameraNear>();
+    RegisterCommand<CmdSetCameraFar>();
+    RegisterCommand<CmdSetCameraFov>();
 
     // Matrix Stack commands (makes object world transform)
     RegisterCommand<CmdPushTranslation>();
