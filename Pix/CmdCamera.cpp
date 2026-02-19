@@ -48,7 +48,6 @@ bool CmdSetCameraNear::Execute(const std::vector<std::string>& params)
 
 bool CmdSetCameraFar::Execute(const std::vector<std::string>& params)
 {
-    // Need far plane value
     if (params.size() < 1)
     {
         return false;
@@ -61,7 +60,6 @@ bool CmdSetCameraFar::Execute(const std::vector<std::string>& params)
 
 bool CmdSetCameraFov::Execute(const std::vector<std::string>& params)
 {
-    // Need fov value (interpreted as degrees, converted to radians)
     if (params.size() < 1)
     {
         return false;

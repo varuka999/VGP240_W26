@@ -1,5 +1,7 @@
 #include "CmdEnableDepthBuffer.h"
 #include "DepthBuffer.h"
+#include "VariableCache.h"
+
 
 bool CmdEnableDepthBuffer::Execute(const std::vector<std::string>& params)
 {
@@ -8,7 +10,8 @@ bool CmdEnableDepthBuffer::Execute(const std::vector<std::string>& params)
 		return false;
 	}
 
-	bool enable = params[0] == "true";
+	VariableCache* vc = VariableCache::Get();
+	bool enable = vc->GetBool(params[0]);
 	DepthBuffer::Get()->SetEnabled(enable);
 	return true;
 }

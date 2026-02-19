@@ -161,6 +161,7 @@ bool PrimitivesManager::EndDraw()
                 for (uint32_t v = 0; v < triangle.size(); ++v)
                 {
                     triangle[v].pos = MathHelper::TransformCoord(triangle[v].pos, matScreen);
+                    // Flatten only on screen space and only pixel x, y values
                     MathHelper::FlattenVectorScreenCoord(triangle[v].pos);
                 }
             }

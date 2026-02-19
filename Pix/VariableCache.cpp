@@ -1,5 +1,4 @@
 #include "VariableCache.h"
-
 #include <ImGui/Inc/imgui.h>
 #include <algorithm>
 #include <iterator>
@@ -31,10 +30,10 @@ struct IntVar : public Variable
         ImGui::DragInt(name.c_str(), &value, speed, min, max);
     }
 
-    int value = 0.0f;
+    int value = 0;
     float speed = 1.0f;
-    int min = 0.0f;
-    int max = 1.0f;
+    int min = 0;
+    int max = 1;
 };
 
 struct BoolVar : public Variable
@@ -43,11 +42,7 @@ struct BoolVar : public Variable
     {
         ImGui::Checkbox(name.c_str(), &value);
     }
-
-    bool value = 0.0f;
-    float speed = 1.0f;
-    float min = 0.0f;
-    float max = 1.0f;
+    bool value = false;
 };
 
 VariableCache* VariableCache::Get()
@@ -143,7 +138,7 @@ void VariableCache::AddBool(const std::string& name, bool value)
         });
     if (iter == mVariables.end())
     {
-        auto boolVar = std::make_unique<BoolVar>(); boolVar->name = name;
+        auto boolVar = std::make_unique<BoolVar>();
         boolVar->name = name;
         boolVar->value = value;
         mVariables.emplace_back(std::move(boolVar));

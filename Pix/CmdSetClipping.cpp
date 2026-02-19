@@ -3,17 +3,12 @@
 
 bool CmdSetClipping::Execute(const std::vector<std::string>& params)
 {
-    bool clipping = true;
-
-    if (params.size() > 0)
+    if (params.size() < 1)
     {
-        if (params[0] == "false")
-        {
-            clipping = false;
-        }
+        return false;
     }
 
-    Clipper::Get()->SetClipping(clipping);
-
+	bool enable = params[0] == "true";
+    Clipper::Get()->SetClipping(enable);
     return true;
 }

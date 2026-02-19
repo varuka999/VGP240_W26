@@ -12,7 +12,8 @@ public:
     const char* GetDescription() override
     {
         return
-            "SetClipping(true/false)\n";
+            "SetClipping(enable)\n"
+			"- enables/disables the depth buffer rendering";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };
