@@ -16,8 +16,7 @@
 #include "CmdCamera.h"
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepthBuffer.h"
-#include "CmdVarInt.h"
-#include "CmdVarBool.h"
+#include "CmdLights.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -50,11 +49,21 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetFillMode>();
     RegisterCommand<CmdSetClipping>();
     RegisterCommand<CmdSetCullMode>();
+
+    // Camera Commands
     RegisterCommand<CmdSetCameraPosition>();
     RegisterCommand<CmdSetCameraDirection>();
     RegisterCommand<CmdSetCameraNear>();
     RegisterCommand<CmdSetCameraFar>();
     RegisterCommand<CmdSetCameraFov>();
+
+    // Light Commands
+    RegisterCommand<CmdSetLightAmbient>();
+    RegisterCommand<CmdSetLightDiffuse>();
+    RegisterCommand<CmdSetLightSpecular>();
+    RegisterCommand<CmdAddDirectionalLight>();
+    //RegisterCommand<CmdAddPointLight>();
+    //RegisterCommand<CmdAddSpotLight>();
 
     // Matrix Stack commands (makes object world transform)
     RegisterCommand<CmdPushTranslation>();
