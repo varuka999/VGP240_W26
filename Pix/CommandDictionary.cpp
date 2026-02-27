@@ -62,8 +62,8 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetLightDiffuse>();
     RegisterCommand<CmdSetLightSpecular>();
     RegisterCommand<CmdAddDirectionalLight>();
-    //RegisterCommand<CmdAddPointLight>();
-    //RegisterCommand<CmdAddSpotLight>();
+    RegisterCommand<CmdAddPointLight>();
+    RegisterCommand<CmdAddSpotLight>();
 
     // Matrix Stack commands (makes object world transform)
     RegisterCommand<CmdPushTranslation>();
