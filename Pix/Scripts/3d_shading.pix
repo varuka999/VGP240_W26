@@ -3,8 +3,7 @@ SetResolution(500, 500, 1)
 SetViewport(50, 50, 400, 400)
 SetClipping(true)
 SetCullMode(back)
-ShowViewport(true)
-EnableDepth(true)
+EnableDepthBuffer(true)
 
 float $camX = 0, 0.01
 float $camY = 1.5, 0.01
@@ -37,7 +36,7 @@ SetLightDiffuse(0.9, 0.0, 0.9)
 SetLightSpecular(0.3, 0.3, 0.3)
 AddSpotLight($lPosX, $lPosY, $lPosZ, $lDirX, $lDirY, $lDirZ, 1, 0.1, 0 ,$lAngle, $lDecay)
 
-SetShading(flat)
+SetShadeMode(flat)
 
 BeginDraw(triangle, true)
 Model(../Models/plane_8x8.obj)
@@ -47,7 +46,7 @@ EndDraw()
 PushTranslation($lPosX, $lPosY, $lPosZ)
 PushScaling(0.1, 0.1, 0.1)
 
-SetShading(gauroud)
+SetShadeMode(gouraud)
 BeginDraw(triangle, true)
 Model(../Models/cube.obj)
 EndDraw()

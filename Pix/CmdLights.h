@@ -5,7 +5,7 @@
 class CmdSetLightAmbient : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "SetLightAmbient";
     }
@@ -22,7 +22,7 @@ public:
 class CmdSetLightDiffuse : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "SetLightDiffuse";
     }
@@ -39,7 +39,7 @@ public:
 class CmdSetLightSpecular : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "SetLightSpecular";
     }
@@ -55,7 +55,7 @@ public:
 class CmdAddDirectionalLight : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "AddDirectionalLight";
     }
@@ -87,7 +87,7 @@ public:
 class CmdAddSpotLight : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "AddSpotLight";
     }

@@ -17,6 +17,8 @@
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepthBuffer.h"
 #include "CmdLights.h"
+#include "CmdSetShadeMode.h"
+#include "CmdModel.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -41,14 +43,17 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdDrawPixel>();
     RegisterCommand<CmdSetColor>();
     RegisterCommand<CmdEnableDepthBuffer>();
+    RegisterCommand<CmdSetShadeMode>();
+    RegisterCommand<CmdSetClipping>();
 
     // Primitives commands
     RegisterCommand<CmdBeginDraw>();
     RegisterCommand<CmdEndDraw>();
     RegisterCommand<CmdVertex>();
     RegisterCommand<CmdSetFillMode>();
-    RegisterCommand<CmdSetClipping>();
     RegisterCommand<CmdSetCullMode>();
+    RegisterCommand<CmdModel>();
+
 
     // Camera Commands
     RegisterCommand<CmdSetCameraPosition>();

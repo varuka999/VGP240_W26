@@ -5,7 +5,7 @@
 class CmdSetCameraPosition : public Command
 {
 public:
-    const char* GetName()
+    const char* GetName() override
     {
         return "SetCameraPosition";
     }

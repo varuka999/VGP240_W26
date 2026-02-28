@@ -171,6 +171,9 @@
     <ClCompile Include="CmdLights.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="CmdSetShadeMode.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextEditor.h">
@@ -291,6 +294,9 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="CmdLights.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdSetShadeMode.h">
       <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>
