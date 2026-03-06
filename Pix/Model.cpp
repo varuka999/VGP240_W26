@@ -15,7 +15,7 @@ void Model::Load(const std::string& fileName)
     if (file == nullptr)
     {
         char buffer[128];
-        sprintf(buffer, "Can't open file %s", fileName.c_str());
+        sprintf_s(buffer, "Can't open file %s", fileName.c_str());
         MessageBoxA(nullptr, buffer, "Model Error", MB_OK | MB_ICONEXCLAMATION);
         return;
     }
