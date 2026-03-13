@@ -2,19 +2,19 @@
 
 #include "Command.h"
 
-class CmdEnableDepthBuffer : public Command
+class CmdSetCorrectUV : public Command
 {
 public:
     const char* GetName() override
     {
-        return "EnableDepthBuffer";
+        return "SetCorrectUV";
     }
     const char* GetDescription() override
     {
         return
-            "EnableDepthBuffer(enable)\n"
+            "SetCorrectUV(correctUV)"
             "\n"
-            "- enables/disables the depth buffer rendering\n";
+            "- enables/diables correct uv for texture objects";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };

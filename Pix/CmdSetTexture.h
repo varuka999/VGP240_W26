@@ -2,19 +2,19 @@
 
 #include "Command.h"
 
-class CmdEnableDepthBuffer : public Command
+class CmdSetTexture : public Command
 {
 public:
     const char* GetName() override
     {
-        return "EnableDepthBuffer";
+        return "SetTexture";
     }
     const char* GetDescription() override
     {
         return
-            "EnableDepthBuffer(enable)\n"
+            "SetTexture(fileName)"
             "\n"
-            "- enables/disables the depth buffer rendering\n";
+            "- sets the texture to use on the next drawn object";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };

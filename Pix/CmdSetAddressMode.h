@@ -2,19 +2,20 @@
 
 #include "Command.h"
 
-class CmdEnableDepthBuffer : public Command
+class CmdSetAddressMode : public Command
 {
 public:
     const char* GetName() override
     {
-        return "EnableDepthBuffer";
+        return "SetAddressMode";
     }
     const char* GetDescription() override
     {
         return
-            "EnableDepthBuffer(enable)\n"
+            "SetAddressMode(mocde)"
             "\n"
-            "- enables/disables the depth buffer rendering\n";
+            "- sets the addres mode for texture objects"
+            "- <border>, <clamp>, <wrap>, <mirror>";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };

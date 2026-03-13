@@ -70,11 +70,17 @@ PrimitivesManager* PrimitivesManager::Get()
 void PrimitivesManager::OnNewFrame()
 {
     mCullMode = CullMode::Back;
+    mCorrectUV = false;
 }
 
 void PrimitivesManager::SetCullMode(CullMode mode)
 {
     mCullMode = mode;
+}
+
+void PrimitivesManager::SetCorrectUV(bool correctUV)
+{
+    mCorrectUV = correctUV;
 }
 
 bool PrimitivesManager::BeginDraw(Topology topology, bool applyTransform)
@@ -168,20 +174,36 @@ bool PrimitivesManager::EndDraw()
                     triangle[v].norm = MathHelper::TransformNormal(triangle[v].norm, matWorld);
                 }
 
-                // Flat shading is vertex based
-                if (shadeMode == ShadeMode::Flat)
+                if (triangle[0].color.z >= 0.0f)
                 {
-                    triangle[0].color *= lm->ComputeLightColor(triangle[0].pos, triangle[0].norm);
-                    triangle[1].color = triangle[0].color;
-                    triangle[2].color = triangle[0].color;
+                    // Flat shading is vertex based
+                    if (shadeMode == ShadeMode::Flat)
+                    {
+                        triangle[0].color *= lm->ComputeLightColor(triangle[0].pos, triangle[0].norm);
+                        triangle[1].color = triangle[0].color;
+                        triangle[2].color = triangle[0].color;
+                    }
+                    // gouraud shading is 
+                    else if (shadeMode == ShadeMode::Gouraud)
+                    {
+                        // apply lightning in world space (gouraud shading)
+                        for (uint32_t v = 0; v < triangle.size(); ++v)
+                        {
+                            triangle[v].color *= lm->ComputeLightColor(triangle[v].pos, triangle[v].norm);
+                        }
+                    }
                 }
-                // gouraud shading is 
-                else if (shadeMode == ShadeMode::Gouraud)
+                else if (mCorrectUV)
                 {
-                    // apply lightning in world space (gouraud shading)
+                    // apply the corrective uv in view space (VIEW SPACE)
+                    // At this point, we are in world space, so next step is
+                    // multiple by matView
                     for (uint32_t v = 0; v < triangle.size(); ++v)
                     {
-                        triangle[v].color *= lm->ComputeLightColor(triangle[v].pos, triangle[v].norm);
+                        Vector3 viewSpacePos = MathHelper::TransformCoord(triangle[v].posWorld, matView);
+                        triangle[v].color.x /= viewSpacePos.z;
+                        triangle[v].color.y /= viewSpacePos.z;
+                        triangle[v].color.w = 1.0f / viewSpacePos.z;
                     }
                 }
 

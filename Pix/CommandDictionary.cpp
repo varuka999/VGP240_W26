@@ -19,6 +19,9 @@
 #include "CmdLights.h"
 #include "CmdSetShadeMode.h"
 #include "CmdModel.h"
+#include "CmdSetTexture.h"
+#include "CmdSetCorrectUV.h"
+#include "CmdSetAddressMode.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -53,7 +56,9 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetFillMode>();
     RegisterCommand<CmdSetCullMode>();
     RegisterCommand<CmdModel>();
-
+    RegisterCommand<CmdSetTexture>();
+    RegisterCommand<CmdSetCorrectUV>();
+    RegisterCommand<CmdSetAddressMode>();
 
     // Camera Commands
     RegisterCommand<CmdSetCameraPosition>();
