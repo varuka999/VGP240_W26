@@ -22,6 +22,7 @@
 #include "CmdSetTexture.h"
 #include "CmdSetCorrectUV.h"
 #include "CmdSetAddressMode.h"
+#include "CmdSetUseFilter.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -49,6 +50,11 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetShadeMode>();
     RegisterCommand<CmdSetClipping>();
 
+    // Texture Commands
+    RegisterCommand<CmdSetTexture>();
+    RegisterCommand<CmdSetCorrectUV>();
+    RegisterCommand<CmdSetUseFilter>();
+
     // Primitives commands
     RegisterCommand<CmdBeginDraw>();
     RegisterCommand<CmdEndDraw>();
@@ -56,8 +62,6 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetFillMode>();
     RegisterCommand<CmdSetCullMode>();
     RegisterCommand<CmdModel>();
-    RegisterCommand<CmdSetTexture>();
-    RegisterCommand<CmdSetCorrectUV>();
     RegisterCommand<CmdSetAddressMode>();
 
     // Camera Commands
