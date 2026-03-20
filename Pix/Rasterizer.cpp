@@ -2,6 +2,7 @@
 #include "DepthBuffer.h"
 #include "LightManager.h"
 #include "TextureManager.h"
+#include "PostProcessing.h"
 
 void DrawLineHorizontal(const Vertex& left, const Vertex& right)
 {
@@ -68,7 +69,12 @@ void Rasterizer::DrawPoint(const Vertex& vertex)
         {
             mColor *= LightManager::Get()->ComputeLightColor(vertex.posWorld, vertex.norm);
         }
-        X::DrawPixel(x, y, mColor);
+
+        // if using post processing, darw on the render target, not here
+        if (!PostProcessing::Get()->Draw(x, y, mColor))
+        {
+            X::DrawPixel(x, y, mColor);
+        }
     }
 }
 

@@ -23,6 +23,7 @@
 #include "CmdSetCorrectUV.h"
 #include "CmdSetAddressMode.h"
 #include "CmdSetUseFilter.h"
+#include "CmdPostProcessing.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -53,6 +54,7 @@ CommandDictionary::CommandDictionary()
     // Texture Commands
     RegisterCommand<CmdSetTexture>();
     RegisterCommand<CmdSetCorrectUV>();
+    RegisterCommand<CmdSetAddressMode>();
     RegisterCommand<CmdSetUseFilter>();
 
     // Primitives commands
@@ -62,7 +64,6 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdSetFillMode>();
     RegisterCommand<CmdSetCullMode>();
     RegisterCommand<CmdModel>();
-    RegisterCommand<CmdSetAddressMode>();
 
     // Camera Commands
     RegisterCommand<CmdSetCameraPosition>();
@@ -86,6 +87,11 @@ CommandDictionary::CommandDictionary()
     RegisterCommand<CmdPushRotationZ>();
     RegisterCommand<CmdPushScaling>();
     RegisterCommand<CmdPopMatrix>();
+
+    // PostProcessing commands
+    RegisterCommand<CmdPostProcessingBeginDraw>();
+    RegisterCommand<CmdPostProcessingEndDraw>();
+    RegisterCommand<CmdPostProcessingSetEffectType>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()
